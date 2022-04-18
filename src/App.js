@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import {useState} from "react";
 import './App.css';
+import AddProduct from "./components/AddProduct";
+import ProductList from "./components/product-list/ProductList";
 
 function App() {
+  const [allProducts, setAllProducts] = useState([]);
+
+  function collectNewProduct(newProd){ //collect data from the intermediary as a parameter
+
+    setAllProducts([...allProducts, newProd]); //add new element to the existing array using array destructuring
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h2 className="text-center mb-3">Inventory Management App</h2>
+      <AddProduct newProduct={collectNewProduct} />
+      <ProductList products={allProducts} />
     </div>
   );
 }
