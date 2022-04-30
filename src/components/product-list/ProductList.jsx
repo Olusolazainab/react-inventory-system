@@ -1,6 +1,23 @@
-import ProductItem from "./ProductItem";
+// import ProductItem from "./ProductItem";
+import ProductListItem1 from "./ProductListItem1";
 
-const ProductList = ({ products }) => {
+import { useState } from "react";
+
+// import AddProduct from "../AddProduct";
+
+const ProductList = ({ products }) =>
+{
+  const [ produc, setProduc ] = useState([]);
+
+ 
+
+
+  
+   const Remove = (index) =>{
+   let newproduct = products.filter((product) => product.index !== index);
+    setProduc(newproduct);
+   }
+  
   return (
     <div className="card card-body shadow mt-5">
       <h4 className="text-center">Product List</h4>
@@ -15,17 +32,20 @@ const ProductList = ({ products }) => {
         </thead>
         <tbody>
           {products.map((product, index) => (
-            <tr key={index}>
-              <td>{++index}</td>
-              <td>{product.name}</td>
-              <td>{product.quantity}</td>
-              <td>
-                <button className="btn btn-success me-2">+</button>
-                <button className="btn btn-danger">-</button>
-              </td>
-            </tr>
+            // <tr key={ index }>
+            //   {/* <ProductListItem1  index={product.index} product={product.product} quantity={product.quantity} option={product.option} /> */}
+            //   <td>{++index}</td>
+            //   <td>{product.name}</td>
+            //   <td>{product.quantity}</td>
+            //   <td>
+            //     {/* <button className="btn btn-success me-2">+</button>
+            //      <button className="btn btn-danger">-</button> */}
+            //     <button className="btn btn-danger">Delete</button>
+            //   </td>
+            // </tr>
+            <ProductListItem1 />
           ))}
-          {/*<ProductItem />*/}
+          {/* <ProductItem /> */}
         </tbody>
       </table>
     </div>
