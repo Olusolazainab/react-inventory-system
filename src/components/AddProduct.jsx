@@ -1,5 +1,5 @@
 import {useState} from "react";
-// import ProductList from "./product-list/ProductList";
+
 
 function AddProduct({ newProduct }) {
   const [productName, setProductName] = useState("");
@@ -18,10 +18,6 @@ function AddProduct({ newProduct }) {
   const handleAddProduct = (e) => {
     e.preventDefault();
     
-    // if (productName === productName)
-    // {
-    //   alert("this particular product already exist")
-   
       let prod = { name: productName, quantity: quantity };
       
       newProduct(prod);

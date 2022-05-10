@@ -7,12 +7,8 @@ function App() {
   const [allProducts, setAllProducts] = useState([]);
 
   function collectNewProduct(newProd){ //collect data from the intermediary as a parameter
-    if (allProducts === newProd)
-    {
-      alert("product already exist")
-      
-}
-   setAllProducts([ ...allProducts, newProd ]); //add new element to the existing array using array destructuringl.o
+   
+    setAllProducts([ ...allProducts, newProd ]); //add new element to the existing array using array destructuringl.o
   }
 
   return (
